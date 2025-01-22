@@ -1,0 +1,175 @@
+.section5.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.section5.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.section5.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.section5 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section5 html,
+.section5 body {
+  width: 100%;
+  height: 1000vh;
+  font-family: "PP Neue Montreal";
+}
+
+.scale {
+  will-change: transform;
+  object-fit: cover;
+  backface-visibility: hidden;
+  image-rendering: crisp-edges;
+}
+
+.section5 img {
+  image-rendering: high-quality;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: scale(1);
+  transition: transform 0.5s ease, image-rendering 0.5s ease;
+}
+
+
+.section5 h1 {
+  font-family: "PP Acma";
+  font-size: 12vw;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.section5 p {
+  font-size: 17px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ssticky {
+  position: relative;
+}
+
+.section5 .ggallery-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 160vw;
+  height: 100vh;
+  display: flex;
+  gap: 4em;
+  z-index: -1;
+  transform-origin: center;
+  will-change: transform;
+  background: #131516;
+}
+
+.col {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  will-change: transform;
+}
+
+.immg {
+  object-fit: cover;
+  flex: 1;
+  overflow: hidden;
+  background-color: #fff;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.immg img {
+  object-fit: cover;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: scale(1);
+  transition: transform 0.5s ease, image-rendering 0.5s ease;
+}
+
+.immg.main {
+  height: 30vh;
+  object-fit: cover;
+  backface-visibility: hidden;
+}
+
+.immg.main canvas {
+  image-rendering: crisp-edges;
+}
+
+.section5 .ssticky .mainImgFixed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+}
+
+.ccontainer {
+  width: 100%;
+  height: 100%;
+}
+
+.section5 section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e1dedc;
+  padding: 0;
+}
+
+.section5 section>* {
+  padding: 0;
+}
+
+.hhero {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 150vh;
+  position: relative;
+  z-index: 2;
+}
+
+.hhero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hheader {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+section.ws {
+  width: 100vw;
+  height: 250vh;
+  background-color: transparent;
+}
+
+.section5 {
+  position: relative;
+}

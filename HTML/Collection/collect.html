@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="shortcut icon" href="../../Assets/Logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="../Store/Card/cart.css">
+    <style>
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 430px;
+            height: 100%;
+            background: #131516;
+            z-index: 1002;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .cart-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cart-container.open {
+            transform: translateX(0);
+            overflow: auto;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+            pointer-events: all;
+        }
+
+        #cart-items tbody {
+            display: block;
+            overflow-y: auto;
+            /* Enable scrolling */
+            max-height: calc(100vh - 190px);
+            /* Or a fixed height as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sectioon">
+        <div class="pre-loader">
+            <div class="loader">
+                <div class="loader-bg"></div>
+            </div>
+            <div class="loader-content">
+                <div class="count">
+                    <p>0</p>
+                </div>
+                <div class="copy">
+                    <p class="ml16">Tom Ford</p>
+                </div>
+            </div>
+            <div class="loader-2"></div>
+        </div>
+        <div class="main-container">
+            <nav>
+                <div class="logo">
+                    <a href="../../index.html">Tom Ford</a>
+                </div>
+                <div class="links">
+                    <a href="../Our Story/ourstory.html" class="info">Our Story</a>
+                    <a href="../Collection/collect.html" class="portfolio">Collection</a>
+                    <a href="../Contact/index.html" class="contact">Contact</a>
+                </div>
+            </nav>
+            <div class="cart">
+                <svg class="cart-svg" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24"
+                    style="z-index:1000; position:fixed; top:50%; left: 90%; fill: white; --darkreader-inline-fill: #e8e6e3;"
+                    data-darkreader-inline-fill="">
+                    <path
+                        d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921z">
+                    </path>
+                    <circle cx="10.5" cy="19.5" r="1.5"></circle>
+                    <circle cx="17.5" cy="19.5" r="1.5"></circle>
+                </svg>
+                <div style="position: fixed; color: orangered; border-radius: 100%; top: 535px; left: 1740px; z-index: 1001;"
+                    class="number">0</div>
+            </div>
+            <div class="main">
+                <div class="section">
+                    <span class="heading-our-collection">Our Collection</span>
+                </div>
+                <div class="background">
+                    <div class="container">
+                        <span class="heading-black-tea">Fragance</span><span class="modern-luxury">is the Emboiment of
+                            Modern
+                            Luxury</span>
+                        <div class="flex-row-ef">
+                            <div class="product-form-form">
+                                <div class="link">
+                                    <a href="../Pages/Jasmin Rouge/index.html" class="lemon-webp"
+                                        data-product-image="/Assets/img/Jasminn.png" data-product-name="Jasmin Rouge"
+                                        data-product-price="70"></a>
+                                    <div class="paragraph">
+                                        <span class="heading-lemon">Jasmin Rouge</span><span class="price">$70</span>
+                                    </div>
+                                </div>
+                                <div class="container-1">
+                                    <div class="button-dialog">
+                                        <span class="add-to-cart">Add To Cart</span>
+                                    </div>
+                                    <div class="background-border">
+                                        <span class="minus" onclick="decreaseQuantity('link-4', this)">-</span>
+                                    </div>
+                                    <div class="plus">
+                                        <span class="input" onclick="increaseQuantity('link-4', this)">+</span>
+                                    </div>
+                                    <div class="container-2">
+                                        <div class="product-form-form-3">
+                                            <span class="link-4">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="peach-webp">
+                                <div class="paragraph-5">
+                                    <a class="heading-peach" href="../Pages/Electric Cherry/index.html"
+                                        data-product-image="/Assets/img/Tom-Ford-Electric-Cherry-Photoroom.png"
+                                        data-product-name="Electric Cherry" data-product-price="80"></a>
+                                    <div class="price-6">
+                                        <span class="text-a">Electric Cherry</span><span class="text-b">$80</span>
+                                    </div>
+                                </div>
+                                <div class="container-7">
+                                    <div class="button-dialog-8">
+                                        <span class="add-to-cart-9">Add To Cart</span>
+                                    </div>
+                                    <div class="background-border-a">
+                                        <span class="minus-b"
+                                            onclick="decreaseQuantity('quantity-number-2', this)">-</span>
+                                    </div>
+                                    <div class="plus-c">
+                                        <span class="input-d"
+                                            onclick="increaseQuantity('quantity-number-2', this)">+</span>
+                                    </div>
+                                    <div class="container-e">
+                                        <div class="quantity">
+                                            <span class="quantity-number quantity-number-2">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-row-f">
+                            <a class="tangerine" href="../Pages/Ebene Fume/index.html"
+                                data-product-image="/Assets/img/Ebene-Photoroom.png" data-product-name="Ébène Fumé"
+                                data-product-price="70"></a>
+                            <div class="product-form-form-f">
+                                <div class="link-10">
+                                    <div class="paragraph-11">
+                                        <span class="heading-mint">Ébène Fumé</span><span class="price-12">$70</span>
+                                    </div>
+                                </div>
+                                <div class="container-13">
+                                    <div class="button-dialog-14">
+                                        <span class="add-to-cart-15">Add To Cart</span>
+                                    </div>
+                                    <div class="background-border-16">
+                                        <span class="minus-17"
+                                            onclick="decreaseQuantity('quantity-number-3', this)">-</span>
+                                    </div>
+                                    <div class="plus-18">
+                                        <span class="input-19"
+                                            onclick="increaseQuantity('quantity-number-3', this)">+</span>
+                                    </div>
+                                    <div class="container-1a">
+                                        <div class="quantity-1b">
+                                            <span class="quantity-number quantity-number-3">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-form-form-1d">
+                                <div class="link-1e">
+                                    <a class="tangerine-1f" href="../Pages/Bitter Peach/index.html"
+                                        data-product-image="/Assets/img/Better-Photoroom.png"
+                                        data-product-name="Bitter Peach" data-product-price="50"></a>
+                                    <div class="paragraph-20">
+                                        <span class="heading-tangerine">Bitter Peach</span><span
+                                            class="dollar">$50</span>
+                                    </div>
+                                </div>
+                                <div class="container-21">
+                                    <div class="button-dialog-22">
+                                        <span class="add-to-cart-23">Add To Cart</span>
+                                    </div>
+                                    <div class="background-border-24">
+                                        <span class="dash" onclick="decreaseQuantity('product-form-1', this)">-</span>
+                                    </div>
+                                    <div class="plus-25">
+                                        <span class="input-26"
+                                            onclick="increaseQuantity('product-form-1', this)">+</span>
+                                    </div>
+                                    <div class="container-27">
+                                        <div class="number-one">
+                                            <span class="product-form product-form-1">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="link-28">
+                            <div class="cinnamon">
+                                <a class="paragraph-29" href="../Pages/Vanille Fatale/index.html"
+                                    data-product-image="/Assets/img/Fatalle.png" data-product-name="Vanille Fatale"
+                                    data-product-price="90">
+                                </a>
+                                <div class="section-e">
+                                    <span class="heading-cinnamon">Vanille Fatale</span><span
+                                        class="dollar-2a">$90</span>
+                                </div>
+                            </div>
+                            <div class="container-2b">
+                                <div class="button-dialog-2c">
+                                    <span class="add-to-cart-2d">Add To Cart</span>
+                                </div>
+                                <div class="background-border-2e">
+                                    <span class="dash-2f"
+                                        onclick="decreaseQuantity('background-34-number', this)">-</span>
+                                </div>
+                                <div class="plus-30">
+                                    <span class="input-31"
+                                        onclick="increaseQuantity('background-34-number', this)">+</span>
+                                </div>
+                                <div class="container-32">
+                                    <div class="number-one-33">
+                                        <span class="background-34 background-34-number">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-35">
+                    <div class="wrapper-f">
+                        <span class="green-tea-heading">Audacity</span><span class="luxury-legacy">Discover Luxury and
+                            Legacy
+                        </span>
+                        <div class="flex-row-cc">
+                            <div class="product-form-36">
+                                <div class="link-37">
+                                    <a class="ginger-image" href="../Pages/Vanilla Sex/index.html"
+                                        data-product-image="/Assets/img/VanillaSex-Photoroom.png"
+                                        data-product-name="Vanilla Sex" data-product-price="40">
+                                    </a>
+                                    <div class="paragraph-38">
+                                        <span class="ginger-saffron-heading">Vanilla Sex</span><span
+                                            class="price-39">$40</span>
+                                    </div>
+                                </div>
+                                <div class="container-3a">
+                                    <div class="button-dialog-3b">
+                                        <span class="add-to-cart-3c">Add To Cart</span>
+                                    </div>
+                                    <div class="background-border-3d">
+                                        <span class="minus-3e"
+                                            onclick="decreaseQuantity('product-form-43-number', this)">-</span>
+                                    </div>
+                                    <div class="plus-3f">
+                                        <span class="input-40"
+                                            onclick="increaseQuantity('product-form-43-number', this)">+</span>
+                                    </div>
+                                    <div class="container-41">
+                                        <div class="quantity-42">
+                                            <span class="product-form product-form-43-number">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="link-44">
+                                <div class="jasmine-image">
+                                    <a class="paragraph-45" href="../Pages/Neroli Portofino/index.html"
+                                        data-product-image="/Assets/img/neroli-Photoroom.png"
+                                        data-product-name="Neroli Portofino" data-product-price="50">
+                                    </a>
+                                    <div class="jasmine-heading">
+                                        <span class="price-46">Neroli Portofino</span><span
+                                            class="container-47">$50</span>
+                                    </div>
+                                </div>
+                                <div class="button-dialog-48">
+                                    <div class="add-to-cart-49">
+                                        <span class="background-border-4a">Add To Cart</span>
+                                    </div>
+                                    <div class="minus-4b">
+                                        <span class="plus-4c" onclick="decreaseQuantity('number-number', this)">-</span>
+                                    </div>
+                                    <div class="section-11">
+                                        <span class="plus-icon"
+                                            onclick="increaseQuantity('number-number', this)">+</span>
+                                    </div>
+                                    <div class="input-4d">
+                                        <div class="container-4e">
+                                            <span class="number-fg number-number">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-4f">
+                    <div class="container-50">
+                        <span class="full-collection-heading">FULL COLLECTION</span><span class="strong-flavor">For
+                            those that can
+                            handle a strong flavor and strong aroma.</span>
+                        <div class="product-form-51">
+                            <div class="link-52">
+                                <a class="group" href="./collect.html" data-product-image="/Assets/img/All.png"
+                                    data-product-name="Founders Edition" data-product-price="220">
+                                </a>
+                                <div class="paragraph-53">
+                                    <div class="founders-edition-heading">
+                                        <span class="founders-edition">Founders Edition</span>
+                                    </div>
+                                    <div class="dollar-sign">
+                                        <span class="price-54">$220</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-55">
+                                <div class="add-to-cart-button">
+                                    <span class="add-to-cart-text">Add To Cart</span>
+                                </div>
+                                <div class="minus-icon">
+                                    <span class="background-border-56"
+                                        onclick="decreaseQuantity('number-5b-number', this)">-</span>
+                                </div>
+                                <div class="background-border-57">
+                                    <span class="plus-icon-58"
+                                        onclick="increaseQuantity('number-5b-number', this)">+</span>
+                                </div>
+                                <div class="input-59">
+                                    <div class="container-5a">
+                                        <span class="number-5b number-5b-number">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-5c">
+                    <div class="thumbnail-image" onclick="toggleFullScreenVideo(this)" style="cursor: pointer;">
+                        <div class="background-border-5d">
+                            <div class="svg">
+                            </div>
+                        </div>
+                        <div class="preview-video">
+                            <video
+                                style="width: 100%; height: 100%; object-fit: cover; position: relative; top: 0; left: 0;">
+                                <source src="../../Assets/Imagens/Videos/0106.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeo.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-containerr">
+            <div class="containerr">
+                <div class="containerr-1">
+                    <div class="headingg">
+                        <span class="tom-ford-quotee" style="top: 150px;">"Tom Ford is the embodiment of modern
+                            luxury, where
+                            boldness
+                            meets sophistication."</span>
+                    </div>
+                    <a class="linkk">
+                        <span class="explore-collectionn">Explore Collection</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foooter">
+        <div class="main-containeer">
+            <span class="tom-forrd">TOM FORD</span>
+            <div class="flex-row-cc">
+                <div class="vector"></div>
+                <div class="vector-1"></div>
+                <div class="vector-2"></div>
+                <div class="vector-3"></div>
+                <div class="vector-4"></div>
+            </div>
+            <div class="containeer">
+                <div class="containeer-5">
+                    <div class="link"><a style="text-decoration: none;" href="../../index.html" class="our-story">TOM
+                            FORD</a></div>
+                    <div class="containeer-6"><span class="separator">|</span></div>
+                    <div class="link-7"><a style="text-decoration: none;" href="../Our Story/ourstory.html"
+                            class="collection">OUR STORY</a></div>
+                    <div class="containeer-8"><span class="separator-9">|</span></div>
+                    <div class="link-a"><a style="text-decoration: none;" href="../Collection/collect.html"
+                            class="business">Business</a></div>
+                    <div class="containeer-b"><span class="separator-c">|</span></div>
+                    <div class="link-d"><a style="text-decoration: none;" href="../Contact/index.html"
+                            class="contact-us">contact us</a></div>
+                </div>
+                <div class="containeer-e">
+                    <div class="instagram-link">
+                        <div class="containeer-f">
+                            <div class="containeer-10"></div>
+                            <div class="flex-row">
+                                <div class="containeer-11"></div>
+                                <div class="component"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="link-threads-link">
+                        <div class="containeer-12">
+                            <div class="containeer-13"></div>
+                            <div class="flex-row-ae">
+                                <div class="containeer-14"></div>
+                                <div class="component-15"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="link-tiktok-link">
+                        <div class="containeer-16">
+                            <div class="containeer-17"></div>
+                            <div class="flex-row-a">
+                                <div class="containeer-18"></div>
+                                <div class="component-19"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="link-facebook-link">
+                        <div class="containeer-1a">
+                            <div class="containeer-1b"></div>
+                            <div class="flex-row-d">
+                                <div class="containeer-1c"></div>
+                                <div class="component-1d"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="link-linkedin-link">
+                        <div class="containeer-1e">
+                            <div class="containeer-1f"></div>
+                            <div class="flex-row-fc">
+                                <div class="containeer-20"></div>
+                                <div class="component-21"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="marginn">
+                    <div class="containeer-22">
+                        <div class="link-23">
+                            <span class="privacy-policy">Privacy policy</span>
+                        </div>
+                        <div class="containeer-24"><span class="separator-25">|</span></div>
+                        <div class="link-26">
+                            <span class="terms-conditions">Terms & conditions</span>
+                        </div>
+                        <div class="containeer-27"><span class="separator-28">|</span></div>
+                        <div class="link-29">
+                            <span class="return-refund-policy">Return & Refund Policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-container" id="cart-container"></div>
+    <div class="overlay"></div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        function startLoader() {
+            const counterElement = document.querySelector(".count p");
+            let currentValue = 0;
+
+            function updateCounter() {
+                if (currentValue < 100) {
+                    const increment = Math.floor(Math.random() * 10) + 1;
+                    currentValue = Math.min(currentValue + increment, 100);
+                    counterElement.textContent = currentValue;
+
+                    const delay = Math.floor(Math.random() * 200) + 25;
+                    setTimeout(updateCounter, delay);
+                }
+            }
+
+            updateCounter();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            startLoader();
+
+            // Animações GSAP
+            gsap.to(".count", { opacity: 0, delay: 3.5, duration: 0.5 });
+
+            gsap.to(".pre-loader", {
+                scale: 0.5,
+                ease: "power4.inOut",
+                duration: 2,
+                delay: 3,
+            });
+
+            gsap.to(".loader", {
+                height: "0",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.75,
+            });
+
+            gsap.to(".loader-bg", {
+                height: "0",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 4,
+            });
+
+            gsap.to(".loader-2", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.5,
+            });
+
+            gsap.to(".header h1", {
+                y: 50,
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.75,
+                stagger: 0.05,
+            });
+
+            gsap.to(".img", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 4.5,
+                stagger: 0.25,
+            });
+
+            // Animação Anime.js
+            const textWrapper = document.querySelector(".ml16");
+            textWrapper.innerHTML = textWrapper.textContent.replace(
+                /([^\s])/g,
+                "<span class='letter'>$&</span>"
+            );
+
+            const animeTimeline = anime.timeline({ loop: false });
+
+            animeTimeline
+                .add({
+                    targets: ".ml16 .letter",
+                    translateY: [-100, 0],
+                    easing: "easeOutExpo",
+                    duration: 1500,
+                    delay: (el, i) => 30 * i,
+                })
+                .add({
+                    targets: ".ml16 .letter",
+                    translateY: 100, // Move down
+                    opacity: 0, // Fade out
+                    easing: "easeInExpo",
+                    duration: 2400, // Duration of the fade-out animation
+                    delay: (el, i) => 30 * i,
+                });
+        });
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Get the height of main-containerr
+        const mainContainerrHeight = document.querySelector(".main-containerr").offsetHeight;
+
+        // Define the animation for the footer
+        gsap.fromTo(
+            '.foooter',
+            { clipPath: 'inset(100% 0 0 0)', yPercent: -100 },
+            {
+                scrollTrigger: {
+                    trigger: ".main-containerr",
+                    start: "bottom bottom",
+                    end: 'bottom+=400px bottom',
+                    scrub: true,
+                },
+                clipPath: 'inset(0% 0 0 0)',
+                yPercent: 0,
+                ease: "none",
+                duration: 1
+            }
+        );
+        // Define the animation for the container
+        gsap.to(".container", {
+            scrollTrigger: {
+                trigger: "container",
+                start: "bottom bottom",
+                end: '+=400px bottom',
+                scrub: true,
+            },
+            yPercent: -100,
+            ease: "none",
+        });
+        // Add overflow-hidden to the body to prevent scroll issues
+        document.body.style.overflowX = 'hidden';
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Lenis for the main content
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            let cartLenis; // Variable to hold cart's Lenis instance
+
+            // Cart Logic
+            const cartContainer = document.getElementById('cart-container');
+            const cartIcon = document.querySelector('.cart-svg');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart, .add-to-cart-text, .add-to-cart-9, .add-to-cart-15, .add-to-cart-23, .add-to-cart-2d, .add-to-cart-3c, .background-border-4a');
+            let cartOpen = false;
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Array to hold cart items
+            const mainElement = document.querySelector('.main');
+            const overlay = document.querySelector('.overlay');
+            const cartBadge = document.querySelector('.number');
+            let cartIconShown = false;
+
+            async function fetchCartContent() {
+                console.log("fetching cart content");
+                try {
+                    const response = await fetch('../Store/Card/cart.html'); // Path to your cart.html
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const cartContent = await response.text();
+                    console.log("cart content fetched");
+                    return cartContent;
+                } catch (error) {
+                    console.error('Failed to fetch cart content:', error);
+                    return '<p>Failed to load cart content.</p>'; // Fallback content if fetching fails
+                }
+            }
+
+            function updateCartBadge() {
+                let totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+                cartBadge.textContent = totalQuantity;
+            }
+
+            function updateCartDisplay(productData, cartContainer) {
+                const cartTableBody = cartContainer.querySelector('#cart-items tbody');
+                const cartTotalElement = cartContainer.querySelector('#cart-total');
+
+                if (productData) {
+                    const price = parseFloat(productData.price.replace('$', ''));
+                    const itemTotal = price * productData.quantity;
+                    const existingItemIndex = cartItems.findIndex(item => item.name === productData.name);
+
+                    if (existingItemIndex > -1) {
+                        // Item already exists, update quantity
+                        cartItems[existingItemIndex].quantity += productData.quantity;
+                        const row = cartTableBody.querySelector(`[data-product-name="${productData.name}"]`);
+
+                        if (row) {
+                            const quantityDisplay = row.querySelector('.quantity');
+                            const itemTotalDisplay = row.querySelector('.item-total');
+                            quantityDisplay.textContent = cartItems[existingItemIndex].quantity;
+                            itemTotalDisplay.textContent = `$${(price * cartItems[existingItemIndex].quantity).toFixed(2)}`;
+                        }
+                    }
+                    else {
+                        // Item is new, add it
+                        cartItems.push({ ...productData });
+                        const newRow = document.createElement('tr');
+                        newRow.classList.add('RowgroupRow');
+                        newRow.setAttribute('data-product-name', productData.name)
+                        newRow.innerHTML = `
+           <td class="Cell">
+               <img class="Peach1Webp" src="${productData.image}" alt="${productData.name}">
+               </td>
+                <td class="Cell product-details">
+                    <a class="Link" href="#">
+                        <span class="PeachArabicBlackTea">${productData.name}</span>
+                    </a>
+                      <span class="price">${productData.price}</span>
+               </td>
+                <td class="Cell quantity-cell">
+                       <div class="quantity-buttons">
+                           <button class="decrement">-</button>
+                           <span class="quantity">${productData.quantity}</span>
+                             <button class="increment">+</button>
+                         </div>
+                           <span class="item-total">$${itemTotal.toFixed(2)}</span>
+                         <span class="remove-button">Remove</span>
+                   </td>
+             `;
+                        cartTableBody.appendChild(newRow);
+                    }
+                }
+                cartContainer.offsetHeight; //Forçando atualização do layout.
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCartTotal(cartContainer);
+                updateCartBadge();
+            }
+
+            async function displayCart(productData) {
+                console.log("Displaying the cart...")
+                if (cartOpen) {
+                    closeCart();
+                    return;
+                }
+
+                cartOpen = true;
+                mainElement.style.overflow = 'hidden';  // Apply overflow: hidden to main
+                document.body.style.overflow = 'hidden';  // Apply overflow: hidden to body
+                document.body.style.height = '100%'; // Add height: 100%
+                document.documentElement.style.overflow = 'hidden';
+                document.documentElement.style.height = '100%';
+
+                overlay.classList.add('active');
+
+
+                const cartContent = await fetchCartContent();
+                cartContainer.innerHTML = cartContent;
+                const cartTableBod = cartContainer.querySelector('#cart-items tbody');
+
+                cartItems.forEach(item => {
+                    const price = parseFloat(item.price.replace('$', ''));
+                    const itemTotal = price * item.quantity;
+                    const newRow = document.createElement('tr');
+                    newRow.classList.add('RowgroupRow');
+                    newRow.setAttribute('data-product-name', item.name)
+                    newRow.innerHTML = `
+                           <td class="Cell">
+                               <img class="Peach1Webp" src="${item.image}" alt="${item.name}">
+                               </td>
+                                <td class="Cell product-details">
+                                    <a class="Link" href="#">
+                                        <span class="PeachArabicBlackTea">${item.name}</span>
+                                    </a>
+                                      <span class="price">${item.price}</span>
+                               </td>
+                                <td class="Cell quantity-cell">
+                                       <div class="quantity-buttons">
+                                           <button class="decrement">-</button>
+                                           <span class="quantity">${item.quantity}</span>
+                                             <button class="increment">+</button>
+                                         </div>
+                                           <span class="item-total">$${itemTotal.toFixed(2)}</span>
+                                         <span class="remove-button">Remove</span>
+                                   </td>
+                             `;
+                    cartTableBod.appendChild(newRow);
+                })
+                updateCartDisplay(productData, cartContainer);
+                cartContainer.classList.add('open');
+
+                // Add close button functionality
+                const closeButton = cartContainer.querySelector('.ButtonClose');
+                if (closeButton) {
+                    closeButton.addEventListener('click', closeCart);
+                }
+                // Implement the item remove function here
+                const removeButtons = cartContainer.querySelectorAll('.remove-button');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const row = button.closest('.RowgroupRow');
+                        if (row) {
+                            const productName = row.getAttribute('data-product-name');
+                            cartItems = cartItems.filter(item => item.name !== productName);
+                            row.remove();
+                            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                            updateCartTotal(cartContainer);
+                            updateCartBadge()
+                        }
+                    });
+                });
+                // Quantity update logic for the cart (inside displayCart):
+                const cartTableBody = cartContainer.querySelector('#cart-items tbody');
+                cartTableBody.querySelectorAll('.RowgroupRow').forEach((row, index) => {
+                    const incrementButton = row.querySelector('.increment');
+                    const decrementButton = row.querySelector('.decrement');
+                    const quantityDisplay = row.querySelector('.quantity');
+                    const itemTotalDisplay = row.querySelector('.item-total');
+
+                    let quantity = parseInt(quantityDisplay.textContent, 10);
+
+                    incrementButton.addEventListener('click', () => {
+                        quantity++;
+                        quantityDisplay.textContent = quantity;
+                        updateItemTotal(row, quantity);
+                        updateCartTotal(cartContainer);
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                        updateCartBadge()
+                    });
+
+                    decrementButton.addEventListener('click', () => {
+                        if (quantity > 1) {
+                            quantity--;
+                            quantityDisplay.textContent = quantity;
+                            updateItemTotal(row, quantity);
+                            updateCartTotal(cartContainer);
+                            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                            updateCartBadge()
+                        }
+                    });
+                });
+                function updateItemTotal(row, quantity) {
+                    const productName = row.getAttribute('data-product-name');
+                    const item = cartItems.find(item => item.name === productName);
+                    if (item) {
+                        const pricePerItem = parseFloat(item.price.replace('$', ''));
+                        const total = pricePerItem * quantity;
+                        row.querySelector('.item-total').textContent = `$${total.toFixed(2)}`;
+                    }
+                }
+            }
+
+
+            function updateCartTotal(cartContainer) {
+                const cartTotalElement = cartContainer.querySelector('#cart-total');
+                let total = 0;
+                cartContainer.querySelectorAll('#cart-items tbody .RowgroupRow').forEach(row => {
+                    const quantity = parseInt(row.querySelector('.quantity').textContent, 10);
+                    const price = parseFloat(row.querySelector('.price').textContent.replace('$', ''));
+                    total += quantity * price;
+                });
+                cartTotalElement.textContent = `$${total.toFixed(2)}`;
+                const checkoutButton = cartContainer.querySelector('#checkout-button');
+                if (checkoutButton) {
+                    checkoutButton.href = '../Store/CheckOut/index.html';
+                }
+                localStorage.setItem('cartTotal', `$${total.toFixed(2)}`);
+                console.log('cartTotal saved:', `$${total.toFixed(2)}`);
+            }
+
+            function closeCart() {
+                cartContainer.classList.remove('open');
+                cartOpen = false;
+                mainElement.style.overflow = ''; // Remove overflow: hidden from main
+                document.body.style.overflow = ''; // Remove overflow: hidden from body
+                document.body.style.height = ''; // Remove height: 100%
+                document.documentElement.style.overflow = '';
+                document.documentElement.style.height = '';
+                overlay.classList.remove('active');
+            }
+
+            cartIcon.addEventListener('click', async function () {
+                console.log("Cart icon clicked")
+                await displayCart(null);
+            });
+
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', async function (event) {
+                    const productContainer = this.closest('.product-form-form, .peach-webp, .product-form-form-f, .product-form-form-1d, .link-28, .product-form-36, .link-44, .product-form-51');
+                    let productImage;
+
+                    if (productContainer.classList.contains('product-form-form-f')) {
+                        // Caso especial para o Ébène Fumé
+                        const tangerineLink = productContainer.closest('.flex-row-f').querySelector('.tangerine');
+                        if (tangerineLink) {
+                            productImage = tangerineLink
+                        } else {
+                            productImage = productContainer.querySelector('a[data-product-image]');
+                        }
+
+                    } else {
+                        productImage = productContainer.querySelector('a[data-product-image], .ginger-image[data-product-image], .tangerine[data-product-image],.paragraph-29[data-product-image], .tangerine-1f[data-product-image], .group[data-product-image], .paragraph-45[data-product-image]');
+                    }
+
+                    let productName;
+                    let productPrice;
+
+                    if (productContainer.classList.contains('link-44')) {
+                        // Caso especial para Neroli Portofino
+                        productName = productContainer.querySelector('.price-46')
+                        productPrice = productContainer.querySelector('.container-47')
+                    } else {
+                        productName = productContainer.querySelector('span[class*="heading-"], span[class*="text-a"], span[class*="heading-mint"], span[class*="heading-tangerine"], span[class*="heading-cinnamon"], .ginger-saffron-heading, .price-46, .founders-edition');
+                        productPrice = productContainer.querySelector('span[class*="price"], span[class*="text-b"], .price-12, .dollar, .dollar-2a, .price-39, .container-47, .price-54');
+                    }
+
+
+                    const quantityElement = productContainer.querySelector('.link-4, .quantity-number-2, .quantity-number-3, .product-form-1, .background-34-number, .product-form-43-number, .number-number, .number-5b-number');
+                    const absoluteImagePath = productImage ? `${window.location.origin}${productImage.getAttribute('data-product-image')}` : null;
+
+                    const productData = {
+                        image: absoluteImagePath,
+                        name: productName ? productName.textContent : "default-name",
+                        price: productPrice ? productPrice.textContent : "0.00",
+                        quantity: quantityElement ? parseInt(quantityElement.textContent, 10) : 1,
+                    };
+
+                    if (!cartIconShown) {
+                        cartIcon.classList.add('show');
+                        cartBadge.classList.add('show');
+                        cartIconShown = true;
+                    }
+
+                    await displayCart(productData);
+
+                    if (quantityElement) {
+                        quantityElement.textContent = '1';
+                    }
+                });
+            });
+            updateCartBadge()
+        });
+
+
+        function increaseQuantity(elementId, button) {
+            const container = button.closest('.container-1, .container-7, .container-13, .container-21, .container-2b, .container-3a, .button-dialog-48, .container-55');
+            const quantityElement = container.querySelector(`.${elementId}`);
+            let quantity = parseInt(quantityElement.textContent, 10);
+            quantity++;
+            quantityElement.textContent = quantity;
+        }
+
+        function decreaseQuantity(elementId, button) {
+            const container = button.closest('.container-1, .container-7, .container-13, .container-21, .container-2b, .container-3a, .button-dialog-48, .container-55');
+            const quantityElement = container.querySelector(`.${elementId}`);
+            let quantity = parseInt(quantityElement.textContent, 10);
+            if (quantity > 1) {
+                quantity--;
+                quantityElement.textContent = quantity;
+            }
+        }
+
+        function toggleFullScreenVideo(thumbnail) {
+            const videoContainer = thumbnail.querySelector('.preview-video');
+            const video = videoContainer.querySelector('video');
+            const svg = thumbnail.querySelector('.svg');
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                thumbnail.requestFullscreen()
+                    .then(() => {
+                        if (video.paused) {
+                            video.play();
+                            gsap.to(svg, {
+                                opacity: 0,
+                                duration: 0.3,
+                                pointerEvents: 'none',
+                            });
+                        } else {
+                            video.pause();
+                            gsap.to(svg, {
+                                opacity: 1,
+                                duration: 0.3,
+                                pointerEvents: 'auto',
+                            });
+
+                        }
+                    })
+                    .catch((err) => {
+                        console.error('Erro ao ativar tela cheia:', err);
+                    });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+
+nav {
+    padding: 0;
+    margin: 0;
+    background-color: #131516 !important;
+    width: 100% !important;
+    padding: 2em !important;
+    display: flex !important;
+    z-index: 100;
+    /* Aumenta o z-index */
+    position: relative;
+    /* Garante que o menu tenha um contexto para z-index */
+  }
+
+  .links {
+    margin-right: 100px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5em;
+    cursor: pointer !important;
+    z-index: 2001;
+    /* Aumenta o z-index dos links */
+    position: relative;
+    /* Garante que os links tenham um contexto para z-index */
+  }
+
+  nav>div {
+    flex: 1 !important;
+  }
+
+  a {
+    font-size: 18px !important;
+    text-decoration: none !important;
+    color: #fff !important;
+    cursor: pointer !important;
+  }
+
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5em;
+  }
+
+  .logo:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .info:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .portfolio:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .contact:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5em;
+  }
+
+  .logo:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .info:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .portfolio:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+
+  .contact:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+  }

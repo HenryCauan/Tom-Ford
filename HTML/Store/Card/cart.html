@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cart.css">
+    <title>Card</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .cart {
+            overflow: hidden;
+        }
+
+        .Frame {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .cart-items-container {
+            max-height: 90vh;
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+
+        .Columnheader.Product {
+            text-align: left;
+        }
+
+        .Columnheader.Total {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart" style="overflow: hidden;">
+        <div class="Frame" style="z-index: 0;">
+            <div class="Container header">
+                <div class="Heading2">
+                    <div class="YourCart">Your cart</div>
+                </div>
+                <button class="ButtonClose">
+                    <div class="Svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: rgb(255,255,255); --darkreader-inline-fill: #e8e6e3;"
+                            data-darkreader-inline-fill="">
+                            <path
+                                d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+            <div class="CartDrawerItems"
+                style="flex-grow: 1; display: flex; flex-direction: column; position:relative;">
+                <div class="Form">
+                    <div class="cart-items-container" style="overflow: hidden;">
+                        <table class="Table" id="cart-items">
+                            <thead>
+                                <tr class="Row" style="border-bottom: 1px solid gray;">
+                                    <th class="Columnheader Product" style="margin-right: 280px;">Product</th>
+                                    <th class="Columnheader Total">Total</th>
+                                </tr>
+                            </thead>
+                            <div class="itens">
+                                <tbody class="cart-tbody"
+                                    style="display: block; overflow-y: scroll; overflow-x: hidden; ">
+                                    <!-- Dynamic cart items will be inserted here -->
+                                </tbody>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Horizontalborder" style="position: absolute; bottom: 0; left: 0;">
+                <div class="Status">
+                    <div class="Heading2Margin">
+                        <div class="Heading2EstimatedTotal">Estimated Total</div>
+                    </div>
+                    <div class="Margin">
+                        <div class="Small" id="cart-total">$0.00</div>
+                    </div>
+                </div>
+                <div class="TaxesDiscountsAndShippingCalculatedAtCheckout">Taxes, discounts and shipping calculated at
+                    checkout
+                </div>
+
+                <a id="checkout-button" class="Button checkout-button">Check out</a>
+            </div>
+        </div>
+    </div>
+    <script>
+         document.addEventListener('DOMContentLoaded', () => {
+            const tbody = document.querySelector('#cart-items tbody');
+            tbody.addEventListener('wheel', (event) => {
+                event.preventDefault();
+                tbody.scrollTop += event.deltaY;
+            });
+
+            const cartTotalElement = document.getElementById('cart-total');
+            const checkoutButton = document.getElementById('checkout-button'); // Seleciona pelo id
+
+            checkoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                const cartTotal = cartTotalElement.textContent;
+                console.log("cartTotal to be stored:", cartTotal);
+                localStorage.setItem('cartTotal', cartTotal);
+                window.location.href = '../Store/Card/checkout.html';
+            });
+
+            function updateCartTotal() {
+                // Calculate the cart total (this is a placeholder; replace with your actual logic)
+                let total = 0;
+                document.querySelectorAll('.item-total').forEach(itemTotalElement => {
+                    const priceString = itemTotalElement.textContent.replace('$', '');
+                    const itemTotal = parseFloat(priceString);
+                    console.log("Elemento:", itemTotalElement, "PriceString:", priceString, "ItemTotal:", itemTotal)
+                    if (!isNaN(itemTotal)) {
+                        total += itemTotal;
+                    }
+                });
+                // Format to two decimal places and set
+                const formattedTotal = `$${total.toFixed(2)}`;
+                document.getElementById('cart-total').textContent = formattedTotal;
+                console.log("Total final:", formattedTotal)
+            }
+
+             function adjustScrollbarThumbSize() {
+                const tbody = document.querySelector('#cart-items tbody');
+                const scrollbarThumb = tbody.querySelector('::-webkit-scrollbar-thumb');
+
+                if (scrollbarThumb) {
+                     let visibleHeight = tbody.clientHeight;
+                     let contentHeight = tbody.scrollHeight;
+                     let thumbHeightPercentage = (visibleHeight / contentHeight) * 100;
+
+                   let minThumbHeight = 10;
+                   let calculatedThumbHeight = Math.max(thumbHeightPercentage * (visibleHeight /100), minThumbHeight);
+                   
+                     const style = document.createElement('style');
+                    style.textContent = `
+                        #cart-items tbody::-webkit-scrollbar-thumb {
+                            height: ${calculatedThumbHeight}px !important;
+                        }
+                    `;
+                    document.head.appendChild(style);
+
+                }
+            }
+
+            tbody.addEventListener('scroll', adjustScrollbarThumbSize);
+            adjustScrollbarThumbSize()
+
+            updateCartTotal();
+            // Call updateCartTotal whenever cart items might change. This would depend on how your cart items are added/removed
+            // For example:
+            // 1. If you add/remove items from this page, call `updateCartTotal()` inside the relevant functions.
+            // 2. If the cart items are loaded dynamically, call `updateCartTotal()` after they are loaded.
+        });
+    </script>
+    <script>
+        async function fetchCartContent() {
+            try {
+                const response = await fetch('../Store/Card/cart.html');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const cartContent = await response.text();
+
+                // Criar um elemento temporário para analisar o conteúdo HTML
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = cartContent;
+
+                //Encontrar todos os links e atualizar seus hrefs
+                tempElement.querySelectorAll('a[href]').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('http://') && !href.startsWith('https://')) {
+                        link.setAttribute('href', new URL(href, window.location.origin + '/Store/Card').href);
+                    }
+                });
+                return tempElement.innerHTML;
+
+            } catch (error) {
+                console.error('Failed to fetch cart content:', error);
+                return '<p>Failed to load cart content.</p>'; // Fallback content if fetching fails
+            }
+        }
+    </script>
+</body>
+
+</html>

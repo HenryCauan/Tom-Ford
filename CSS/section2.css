@@ -1,0 +1,105 @@
+/* Section2 */
+.section2 {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0; /* Corrigido: padding para 0 */
+        box-sizing: border-box;
+    }
+    
+    body {
+        width: 100%;
+        height: 600vh; /* Altura ajustável conforme necessário */
+        font-family: "Absolute"; /* Certifique-se de que esta fonte esteja definida */
+        color: #fff;
+    }
+    
+    section {
+        width: 100vw;
+        overflow: hidden;
+        background-color: #131516;
+    }
+    
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer h1 {
+        font-size: 4vw;
+        font-weight: lighter;
+        color: #fff;
+        text-align: center;
+    }
+    
+    .sticky-hero h1 {
+        min-height: 100px;
+        font-size: 20vw;
+        font-weight: lighter;
+        color: transparent;
+        -webkit-text-stroke: 2px #fff;
+        text-align: center;
+    }
+    
+    .progress-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 8px;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Adicione transição para suavizar a animação */
+    }
+    
+    
+    .progress {
+        width: 100%;
+        height: 0%;
+        background-color: #353531;
+        transition: height 0.3s ease; /* Adicione transição para suavizar a animação */
+    }
+    
+    .indices {
+        position: absolute;
+        top: 35%; /* Centralizado verticalmente */
+        left: 50%; /* Centralizado horizontalmente */
+        transform: translate(-50%, -50%); /* Centraliza o container */
+        width: 80%; /* Largura do container de texto */
+        height: auto; /* Altura automática para acomodar o texto */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Alinha os textos ao centro */
+        gap: 2em; /* Espaçamento entre os textos */
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Adicione transição para suavizar a animação */
+    }
+    
+    
+    .index {
+        text-align: center; /* Centraliza o texto horizontalmente */
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Adicione transição para suavizar a animação */
+    }
+    
+    .index p {
+        font-size: 4em; /* Ajuste conforme necessário */
+        font-weight: bold; /* Ajuste conforme necessário */
+        color: white;
+    }
+    
+    /* Estilos responsivos (opcional) - ajuste conforme necessário */
+    @media (max-width: 768px) {
+        .sticky-hero h1 {
+            font-size: 15vw;
+        }
+        .index p {
+            font-size: 1.5em;
+        }
+    }
+    
+}

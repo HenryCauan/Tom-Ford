@@ -1,0 +1,300 @@
+.Frame {
+    width: 400px;
+    padding: 16px 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.CartDrawerItems {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cart-items-container {
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.Container {
+    display: flex;
+    width: 100%;
+}
+
+.Container.header {
+    background: transparent;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0f1111;
+    z-index: 2;
+}
+
+.Link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.Link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.YourCart {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.6px;
+    margin-bottom: 15px;
+    color: #DDDAD6;
+}
+
+.ButtonClose {
+    margin-bottom: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.Svg {
+    width: 20px;
+    height: 20px;
+    fill: #DDDAD6;
+}
+
+.Table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #DDDAD6;
+    display: block;
+}
+
+.Row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Columnheader {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: rgba(221, 218, 214, 0.75);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(134, 125, 110, 0.08);
+}
+
+.Product {
+    text-align: left;
+}
+
+.Total {
+    text-align: right;
+}
+
+.RowgroupRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.product-details {
+    margin-bottom: 70px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Cell {
+    padding: 20px 0;
+    pointer-events: none;
+}
+
+.Cell.product-details {
+    pointer-events: none;
+}
+
+.Cell.quantity-cell {
+    padding-right: 50px;
+    pointer-events: auto;
+}
+
+.Peach1Webp {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.price {
+    color: rgba(221, 218, 214, 0.75);
+}
+
+.quantity-cell {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 7%;
+    pointer-events: auto;
+}
+
+.Horizontalborder {
+    border-top: 1px solid rgba(134, 125, 110, 0.20);
+    padding: 20px 0;
+    width: 100%;
+    z-index: 2;
+    background: #0f1111;
+}
+
+.Status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.Heading2EstimatedTotal {
+    font-size: 16px;
+    font-weight: 700;
+    color: #DDDAD6;
+    margin-left: 25px;
+}
+
+.Small {
+    color: #DDDAD6;
+    margin-right: 20px;
+}
+
+.Button {
+    margin-left: 20px;
+    background-color: #C64000;
+    color: #e8e6e3;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 5px;
+    font-family: 'PP Fragment', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    /* This line will make a link look like a block-level element */
+    text-align: center;
+}
+
+.TaxesDiscountsAndShippingCalculatedAtCheckout {
+    color: rgba(221, 218, 214, 0.75);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: start;
+    margin-bottom: 15px;
+    margin-left: 25px;
+}
+
+.quantity-buttons {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.quantity-buttons button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quantity-buttons span.quantity {
+    padding: 5px 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.quantity {
+    color: black;
+}
+
+.item-total {
+    margin-top: -90px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.remove-button {
+    text-align: right;
+    color: rgba(221, 218, 214, 0.75);
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.cart {
+    overflow-y: hidden;
+}
+
+.layout {
+    position: absolute;
+    border: 1px solid white;
+    width: 22px;
+    height: 141px;
+    border-radius: 80px;
+    top: 40%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.moviment {
+    position: absolute;
+    background: white;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    top: 20%;
+    margin-left: 6px;
+    cursor: grab;
+}
+
+.moviment.dragging {
+    cursor: grabbing;
+}
+
+
+#cart-items tbody {
+    display: block !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+    height: 100% !important;
+}
+
+/* Para navegadores WebKit (Chrome, Safari, etc.) */
+
+#cart-items tbody::-webkit-scrollbar {
+    height: 20px !important;
+    width: 10px !important;
+    background-color: transparent !important;
+}
+
+#cart-items tbody::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #9e3300 !important;
+    cursor: pointer !important;
+    height: 3px !important; /* Diminui a altura para 3px */
+}
+
+#cart-items tbody::-webkit-scrollbar-track {
+    background-color: transparent !important;
+}
