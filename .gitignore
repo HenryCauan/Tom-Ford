@@ -1,0 +1,6 @@
+# Ignorar diretório VSCode
+.vscode/
+
+# Ignorar diretórios de assets e imagens
+Assets/
+Imgx/
