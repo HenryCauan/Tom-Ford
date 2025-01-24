@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(https://db.onlinewebfonts.com/c/155c3fcab90ff316f2afaf56be1b86b4?family=PP+Editorial+Old);
 
 * {
     margin: 0;
@@ -11,6 +12,7 @@
 }
 
 .cursor {
+    left: 9000px;
     position: fixed;
     width: 40px;
     height: 40px;
@@ -103,11 +105,12 @@ nav {
 
 h1 {
     font-family: "Roboto", serif;
+    margin-bottom: 10px;
 }
 
 h4 {
     font-size: 27px;
-    padding-top: 15px;
+    padding-top: 45px;
     padding-bottom: 30px;
     font-family: "Roboto", serif;
     opacity: 0.5;
@@ -188,4 +191,101 @@ button:hover {
     opacity: 1;
     font-size: 16px;
     font-weight: 500;
+}
+
+/* Loader */
+.pre-loader {
+  /* Loader */
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.pre-loader .loader {
+  /* Loader */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pre-loader .loader-content {
+  /* Loader */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 400px;
+  z-index: 2;
+  color: #fff;
+}
+
+.pre-loader .count {
+  /* Loader */
+  flex: 2;
+  text-align: right;
+  line-height: 1;
+  padding: 0 1em;
+}
+
+.pre-loader .copy {
+  /* Loader */
+  flex: 6;
+  font-family: "PP Editorial Old";
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.pre-loader .ml16 {
+  /* Loader */
+  overflow: hidden;
+}
+
+.pre-loader .ml16 .letter {
+  /* Loader */
+  display: inline-block;
+  line-height: 1em;
+  font-family: "PP Editorial Old";
+  color: white;
+  font-size: 30px;
+  opacity: 1;
+}
+
+.pre-loader .loader-bg {
+  /* Loader */
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: red;
+  z-index: -1;
+}
+
+.pre-loader.loader-2 {
+  /* Loader */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url() no-repeat 50% 50%;
+  background-size: cover;
+  z-index: -1;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 1440px) {
+  button {
+    top: 790px;
+    left: 515px;
+  }
 }

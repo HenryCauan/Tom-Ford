@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="../../Assets/Logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
     <title>Contact Us</title>
 </head>
+
 <body>
+    <div class="pre-loader" style="z-index: 999;">
+        <div class="loader">
+            <div class="loader-bg"></div>
+        </div>
+        <div class="loader-content">
+            <div class="count">
+                <p>0</p>
+            </div>
+            <div class="copy">
+                <p class="ml16">Tom Ford</p>
+            </div>
+        </div>
+        <div class="loader-2"></div>
+    </div>
     <div class="container">
         <div class="cursor"></div>
         <nav>
-                <div class="logo">
-                    <a href="../../index.html">Tom Ford</a>
-                </div>
-                <div class="links">
-                    <a href="../Our Story/ourstory.html" class="info">Our Story</a>
-                    <a href="../Collection/collect.html" class="portfolio">Collection</a>
-                    <a href="../Contact/index.html" class="contact">Contact</a>
-                </div>
-            </nav>
+            <div class="logo">
+                <a href="../../index.html">Tom Ford</a>
+            </div>
+            <div class="links">
+                <a href="../Our Story/ourstory.html" class="info">Our Story</a>
+                <a href="../Collection/collect.html" class="portfolio">Collection</a>
+                <a href="../Contact/index.html" class="contact">Contact</a>
+            </div>
+        </nav>
         <div class="header">
             <h1 style="color: white;">Contact Us</h1>
             <h4 style="color: white;">We'll get back to you as soon as we're ready for you!</h4>
@@ -37,7 +58,8 @@
         <div class="box item-3">
             <span style="color: white;">Message</span>
             <br>
-            <textarea id="messageTextarea" placeholder="Objectively describe your message to our team." rows="5" cols="30"></textarea>
+            <textarea id="messageTextarea" placeholder="Objectively describe your message to our team." rows="5"
+                cols="30"></textarea>
         </div>
         <div class="button">
             <button id="contactButton"><span class="text">Contact Us</span></button>
@@ -55,12 +77,112 @@
         const emailInput = document.getElementById('emailInput');
         const messageTextarea = document.getElementById('messageTextarea');
 
-        contactButton.addEventListener('click', function() {
+        contactButton.addEventListener('click', function () {
             nameInput.value = '';
             emailInput.value = '';
             messageTextarea.value = '';
         });
 
     </script>
+    <script>
+        function startLoader() {
+            const counterElement = document.querySelector(".count p");
+            let currentValue = 0;
+
+            function updateCounter() {
+                if (currentValue < 100) {
+                    const increment = Math.floor(Math.random() * 10) + 1;
+                    currentValue = Math.min(currentValue + increment, 100);
+                    counterElement.textContent = currentValue;
+
+                    const delay = Math.floor(Math.random() * 200) + 25;
+                    setTimeout(updateCounter, delay);
+                }
+            }
+
+            updateCounter();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            startLoader();
+
+            setTimeout(() => {
+                const video = document.getElementById("background-video");
+                video.style.display = "block";
+            }, 1000);
+
+            // Animações GSAP
+            gsap.to(".count", { opacity: 0, delay: 3.5, duration: 0.5 });
+
+            gsap.to(".pre-loader", {
+                scale: 0.5,
+                ease: "power4.inOut",
+                duration: 2,
+                delay: 3,
+            });
+
+            gsap.to(".loader", {
+                height: "0",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.75,
+            });
+
+            gsap.to(".loader-bg", {
+                height: "0",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 4,
+            });
+
+            gsap.to(".loader-2", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.5,
+            });
+
+            gsap.to(".header h1", {
+                y: 50,
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 3.75,
+                stagger: 0.05,
+            });
+
+            gsap.to(".img", {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut",
+                duration: 1.5,
+                delay: 4.5,
+                stagger: 0.25,
+            });
+
+            // Animação Anime.js
+            const textWrapper = document.querySelector(".ml16");
+            textWrapper.innerHTML = textWrapper.textContent.replace(
+                /([^\s])/g,
+                "<span class='letter'>$&</span>"
+            );
+
+            anime
+                .timeline({ loop: false })
+                .add({
+                    targets: ".ml16 .letter",
+                    translateY: [-100, 0],
+                    easing: "easeOutExpo",
+                    duration: 1500,
+                    delay: (el, i) => 30 * i,
+                })
+                .add({
+                    targets: ".ml16 .letter",
+                    translateY: [0, 100],
+                    easing: "easeOutExpo",
+                    duration: 3000,
+                    delay: (el, i) => 2000 + 30 * i,
+                });
+        });
+    </script>
 </body>
+
 </html>
