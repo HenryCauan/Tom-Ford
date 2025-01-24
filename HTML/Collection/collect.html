@@ -102,7 +102,7 @@
                     <circle cx="10.5" cy="19.5" r="1.5"></circle>
                     <circle cx="17.5" cy="19.5" r="1.5"></circle>
                 </svg>
-                <div style="position: fixed; color: orangered; border-radius: 100%; top: 535px; left: 1740px; z-index: 1001;"
+                <div style="position: fixed; color: orangered; border-radius: 100%; top: 500px; left: 1740px; z-index: 1001;"
                     class="number">0</div>
             </div>
             <div class="main">
@@ -992,6 +992,33 @@
                     .catch((err) => {
                         console.error('Erro ao ativar tela cheia:', err);
                     });
+            }
+        }
+    </script>
+    <script>
+        // Adicione este código após o JavaScript existente
+        function handleMobileMenu() {
+            const nav = document.querySelector('nav');
+            const links = document.querySelector('.links');
+
+            if (window.innerWidth <= 480) {
+                nav.style.position = 'relative';
+                links.style.width = '100%';
+            }
+        }
+
+        // Adicione listeners para redimensionamento
+        window.addEventListener('resize', handleMobileMenu);
+        window.addEventListener('load', handleMobileMenu);
+
+        // Modifique a função closeCart para dispositivos móveis
+        function closeCart() {
+            cartContainer.classList.remove('open');
+            cartOpen = false;
+
+            if (window.innerWidth <= 480) {
+                document.body.style.overflow = '';
+                overlay.style.display = 'none';
             }
         }
     </script>

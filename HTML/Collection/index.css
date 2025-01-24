@@ -14,6 +14,7 @@ html {
   margin: 0 auto;
   background: #181a1b;
   overflow: hidden;
+  padding: 0 20px;
 }
 
 .main {
@@ -3725,3 +3726,78 @@ html {
   height: calc(100% - 150px);
 }
 
+/* Estilos base */
+.main-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Notebook (1366px e menor) */
+@media (max-width: 1440px) {
+  .main-container {
+    width: 1440px !important;
+  }
+
+  .section {
+    width: 1440px !important;
+    left: -180px !important;
+  }
+
+  .background {
+    width: 1440px !important;
+  }
+
+  .wrapper-f {
+    width: 1440px !important;
+  }
+
+  .container-35 {
+    width: 1440px !important;
+  }
+
+  .background-4f {
+    width: 1440px !important;
+  }
+
+  video {
+    width: 1440px !important;
+  }
+
+  .svg {
+    left: -220px;
+  }
+
+  .tom-ford-quotee {
+    margin-top: -50px;
+    margin-left: -90px;
+    font-size: 55px;
+    top: -50px;
+    left: 50px;
+    width: 1200px;
+    /* Permite que a largura se ajuste ao texto */
+    /* Permite que a altura se ajuste ao texto */
+    z-index: 200;
+  }
+
+  .linkk {
+    margin: 0;
+    left: 700px;
+    top: 250px;
+  }
+
+  .main-containeer {
+    width: 1440px !important;
+  }
+
+  .foooter {
+    width: 1440px !important;
+  }
+  .containeer {
+    margin-left: 430px;
+  }
+  .tom-forrd {
+    left: -190px;
+  }
+}
