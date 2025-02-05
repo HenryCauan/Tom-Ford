@@ -204,11 +204,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script type="text/javascript">
-        (function () {
-            emailjs.init({
-                publicKey: "kAkk9a2LjTlRJBxGw",
-            });
-        })();
+        import config from './config.js';
+
+        emailjs.init({
+            publicKey: config.emailjsPublicKey,
+        });
     </script>
 </body>
 
