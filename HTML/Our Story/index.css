@@ -2600,7 +2600,7 @@ button {
   /* Deixa a largura se ajustar ao texto */
   height: auto;
   /* Deixa a altura se ajustar ao texto */
-  top: 13px;
+  margin-top: 180px;
   left: 88px;
   color: #ffffff;
   font-size: 64.69999694824219px;

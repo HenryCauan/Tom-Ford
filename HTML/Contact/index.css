@@ -179,7 +179,7 @@ button {
     border: none;
     color: white;
     left: 770px;
-    top: 81%;
+    top: 84%;
 }
 
 button:hover { 
@@ -286,6 +286,6 @@ button:hover {
 @media (max-width: 1440px) {
   button {
     top: 790px;
-    left: 515px;
+    left: 535px;
   }
 }
