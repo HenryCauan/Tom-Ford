@@ -2717,3 +2717,16 @@ button {
 }
 
 
+.cursor {
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1000;
+  transform: translate(90%, 20%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}

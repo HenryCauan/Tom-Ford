@@ -35,6 +35,7 @@ body {
   border-radius: 50%;
   z-index: 1000;
   transform: translate(90%, 20%);
+  pointer-events: none; /* Adicione esta linha para permitir cliques nos elementos abaixo */
 }
 
 a {

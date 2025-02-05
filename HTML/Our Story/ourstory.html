@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <div class="cursor"></div>
     <div class="pre-loader">
         <div class="loader">
             <div class="loader-bg"></div>
@@ -265,17 +266,17 @@
                     </a>
                     <div class="containeer-6"><span class="separator" style="color: white;">|</span></div>
                     <a class="link-7" href="../Our Story/ourstory.html">
-                      <span class="collection" style="color: white;">OUR STORY</span>
+                        <span class="collection" style="color: white;">OUR STORY</span>
                     </a>
                     <div class="containeer-8"><span class="separator-9">|</span></div>
                     <a class="link-a" href="../Collection/collect.html">
-                      <span class="business" style="color: white;">Business</span>
+                        <span class="business" style="color: white;">Business</span>
                     </a>
                     <div class="containeer-b"><span class="separator-c">|</span></div>
                     <a class="link-d" href="../Contact/index.html">
-                      <span class="contact-us" style="color: white;">contact</span>
+                        <span class="contact-us" style="color: white;">contact</span>
                     </a>
-                  </div>
+                </div>
                 <div class="containeer-e">
                     <div class="instagram-link">
                         <div class="containeer-f">
@@ -498,6 +499,26 @@
 
             // Resto do seu código de animação...
         });
+    </script>
+    <script>
+        let cursor = document.querySelector(".cursor");
+        let posX = 0, posY = 0; // Posições do cursor
+        let mouseX = 0, mouseY = 0; // Posições do mouse
+
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX; // Atualiza a posição do mouse
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            posX += (mouseX - posX) * 0.1; // Suaviza a movimentação
+            posY += (mouseY - posY) * 0.1; // Suaviza a movimentação
+            cursor.style.left = (posX - cursor.offsetWidth / 0.8) + "px"; // Centraliza horizontalmente
+            cursor.style.top = (posY - cursor.offsetHeight / 2) + "px"; // Centraliza verticalmente
+            requestAnimationFrame(animateCursor); // Chama a função novamente
+        }
+
+        animateCursor(); // Inicia a animação
     </script>
 </body>
 

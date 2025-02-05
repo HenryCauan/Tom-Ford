@@ -358,10 +358,23 @@
   <script src="./index.js"></script>
   <script>
     let cursor = document.querySelector(".cursor");
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
-        });
+    let posX = 0, posY = 0; // Posições do cursor
+    let mouseX = 0, mouseY = 0; // Posições do mouse
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX; // Atualiza a posição do mouse
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        posX += (mouseX - posX) * 0.1; // Suaviza a movimentação
+        posY += (mouseY - posY) * 0.1; // Suaviza a movimentação
+        cursor.style.left = (posX - cursor.offsetWidth / 0.8) + "px"; // Centraliza horizontalmente
+        cursor.style.top = (posY - cursor.offsetHeight / 2) + "px"; // Centraliza verticalmente
+        requestAnimationFrame(animateCursor); // Chama a função novamente
+    }
+
+    animateCursor(); // Inicia a animação
   </script>
 </body>
 
