@@ -5,7 +5,6 @@
 <p>Este repositório contém o código-fonte e os recursos necessários . O projeto foi desenvolvido utilizando [tecnologias/frameworks utilizados, como HTML, CSS, JavaScript, React, etc.]. </p>
 
 <h2>Funcionalidades Principais</h2>
-[Liste as funcionalidades principais do projeto]
 
 Exemplo: "Catálogo de produtos interativo"
 
