@@ -8,7 +8,7 @@
 
 Exemplo: "Catálogo de produtos interativo"
 
-Exemplo: "Design responsivo para mobile e desktop"
+Exemplo: "História por trás da marca Tom Ford"
 
 Exemplo: "Integração com API de pagamento"
 
