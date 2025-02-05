@@ -227,6 +227,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const video = document.getElementById("background-video");
         video.style.display = "block";
     }, 1000);
+    
+    setTimeout(() => {
+        const preLoader = document.querySelector(".pre-loader");
+        preLoader.style.display = "none"; // Oculta o loader
+    }, 5000); // Ajuste o tempo conforme necessário
 
     // Animações GSAP
     gsap.to(".count", { opacity: 0, delay: 3.5, duration: 0.5 });

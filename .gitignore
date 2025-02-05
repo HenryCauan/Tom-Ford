@@ -1,7 +1,6 @@
 # Ignorar diretório VSCode
 .vscode/
 .node_modules/
-Contact/index.html
 config.js
 .env
 
