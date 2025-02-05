@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="shortcut icon" href="../../Assets/Logo.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -48,7 +48,7 @@
         <div class="box item-1">
             <span style="color: white;">What's your name?</span>
             <br>
-            <input type="text" id="nameInput" placeholder="">
+            <input style="cursor: pointer;" type="text" id="nameInput" placeholder="">
         </div>
         <div class="box item-2">
             <span style="color: white;">What's your email address?</span>
@@ -62,7 +62,7 @@
                 cols="30"></textarea>
         </div>
         <div class="button">
-            <button id="contactButton"><span class="text">Contact Us</span></button>
+            <button onclick="sendMail()" id="contactButton"><span class="text">Contact Us</span></button>
         </div>
     </div>
     <script>
@@ -77,10 +77,28 @@
         const emailInput = document.getElementById('emailInput');
         const messageTextarea = document.getElementById('messageTextarea');
 
-        contactButton.addEventListener('click', function () {
-            nameInput.value = '';
-            emailInput.value = '';
-            messageTextarea.value = '';
+        contactButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const nameInputValue = nameInput.value;
+            const emailInputValue = emailInput.value;
+            const messageTextareaValue = messageTextarea.value;
+
+            // Enviar email usando EmailJS
+            emailjs.send("service_ml6ddzp", "template_6yb20qd", {
+                name: nameInputValue,
+                email: emailInputValue,
+                message: messageTextareaValue
+            })
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Limpar os campos após o envio
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    messageTextarea.value = '';
+                }, function (error) {
+                    console.log('FAILED...', error);
+                });
         });
 
     </script>
@@ -107,9 +125,9 @@
             startLoader();
 
             setTimeout(() => {
-                const video = document.getElementById("background-video");
-                video.style.display = "block";
-            }, 1000);
+                const preLoader = document.querySelector(".pre-loader");
+                preLoader.style.display = "none"; // Oculta o loader
+            }, 5000); // Ajuste o tempo conforme necessário
 
             // Animações GSAP
             gsap.to(".count", { opacity: 0, delay: 3.5, duration: 0.5 });
@@ -182,6 +200,15 @@
                     delay: (el, i) => 2000 + 30 * i,
                 });
         });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "kAkk9a2LjTlRJBxGw",
+            });
+        })();
     </script>
 </body>
 
