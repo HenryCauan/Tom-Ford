@@ -1,10 +1,10 @@
 <h1>Tom Ford - Projeto de Exemplo</h1>
-Bem-vindo ao repositório do projeto Tom Ford! Este projeto é um exemplo de [descreva brevemente o propósito do projeto, por exemplo, "uma aplicação web para gerenciamento de produtos da marca Tom Ford" ou "um site de portfólio inspirado na estética da marca Tom Ford"].
+<p>Bem-vindo ao repositório do projeto Tom Ford! Este projeto é um exemplo de [descreva brevemente o propósito do projeto, por exemplo, "uma aplicação web para gerenciamento de produtos da marca Tom Ford" ou "um site de portfólio inspirado na estética da marca Tom Ford". </p>
 
 <h1>📋 Visão Geral</h1>
-Este repositório contém o código-fonte e os recursos necessários para [descreva o que o projeto faz]. O projeto foi desenvolvido utilizando [tecnologias/frameworks utilizados, como HTML, CSS, JavaScript, React, etc.].
+<p>Este repositório contém o código-fonte e os recursos necessários para [descreva o que o projeto faz]. O projeto foi desenvolvido utilizando [tecnologias/frameworks utilizados, como HTML, CSS, JavaScript, React, etc.]. </p>
 
-<h4>Funcionalidades Principais</h4>
+<h3>Funcionalidades Principais</h3>
 [Liste as funcionalidades principais do projeto]
 
 Exemplo: "Catálogo de produtos interativo"
