@@ -1,12 +1,7 @@
 /* Estilos Globais Responsivos */
 @media (max-width: 768px) {
-    html, body {
-      overflow-x: hidden;
-    }
-    
     .container {
       width: 100%;
-      padding: 0 15px;
     }
   }
   
