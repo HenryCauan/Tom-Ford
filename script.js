@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         const video = document.getElementById("background-video");
         video.style.display = "block";
-    }, 1000);
+    }, 0);
     
     setTimeout(() => {
         const preLoader = document.querySelector(".pre-loader");
