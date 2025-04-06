@@ -9,8 +9,7 @@ html {
 
 .main-container {
   position: relative;
-  width: 100%;
-  margin: 0 auto;
+  width: 100vw;
   background: #181a1b;
   overflow: hidden;
   padding: 0 20px;
@@ -3736,7 +3735,7 @@ html {
 /* Notebook (1366px e menor) */
 @media (max-width: 1440px) {
   .main-container {
-    width: 1440px !important;
+    width: 100vw !important;
   }
 
   .section {
