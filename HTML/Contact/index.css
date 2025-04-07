@@ -107,13 +107,14 @@ nav {
 
 .container {
     background-color: #131516;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    overflow: hidden;
 }
 
 h1 {
@@ -191,8 +192,8 @@ button {
     border-radius: 15px;
     border: none;
     color: white;
-    left: 770px;
-    top: 84%;
+    left: 45.65vw;
+    top: 45vw;
 }
 
 button:hover { 
@@ -296,9 +297,10 @@ button:hover {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-@media (max-width: 1440px) {
+
+@media (max-width: 425px) {
   button {
-    top: 790px;
-    left: 535px;
+    top: 90%;
+    left: 35%;
   }
 }
