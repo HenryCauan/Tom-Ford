@@ -274,6 +274,10 @@ svg {
 }
 
 @media (max-width: 768px) {
+  body,
+  html {
+    overflow-y: scroll;
+  }
   .logo {
     margin-left: 4vw;
   }
