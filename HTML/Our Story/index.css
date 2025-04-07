@@ -77,7 +77,7 @@ a {
   position: relative;
   opacity: 0.5;
   left: 8vw;
-  top: 5vh;
+  top: 3vh;
   margin-bottom: 18vh;
   font-size: 0.8vw;
 }
@@ -103,7 +103,7 @@ a {
 
 .tf-description-two {
   position: relative;
-  top: 6vh;
+  top: 1vh;
   opacity: 0.5;
   font-size: 1vw;
   width: 30vw;
@@ -270,4 +270,480 @@ svg {
   gap: 3vw;
   text-transform: uppercase;
   font-size: 1.1vw;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 4vw;
+  }
+  a {
+    margin-right: 2vw;
+  }
+  .tf-one-page img {
+    position: absolute;
+    left: 60vw;
+    top: 30vh;
+    width: 35vw;
+    height: 54vh;
+    background-size: cover;
+    /* ou 'contain' */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .tf-title {
+    position: relative;
+    align-content: center;
+    font-family: "PP Editorial";
+    margin-top: 20vh;
+    left: 8vw;
+    font-size: 10vw;
+    object-fit: cover;
+  }
+  
+  .tf-subtitle {
+    position: relative;
+    font-size: 2vw;
+    left: 38vw;
+  }
+  
+  .tf-description-one {
+    position: relative;
+    opacity: 0.5;
+    left: 8vw;
+    top: 14vh;
+    margin-bottom: 18vh;
+    font-size: 1.2vw;
+  }
+  
+  .tf-subtitle-two {
+    font-family: "PP Editorial";
+    position: relative;
+    top: 5vh;
+    left: 7vw;
+    font-size: 7vw;
+  }
+  
+  .tf-subtitle-two::before {
+    content: "‘’";
+    position: relative;
+    margin-left: -2vw;
+  }
+  
+  .tf-subtitle-two::after {
+    content: "‘’";
+    position: relative;
+    left: 1vw;
+  }
+  
+  .tf-description-two {
+    position: relative;
+    top: 20vh;
+    opacity: 0.5;
+    font-size: 1vw;
+    width: 30vw;
+    left: 60vw;
+  }
+  .tf-two-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+    color: white;
+    background-color: rgba(15, 17, 17, 1);
+    width: 100%;
+    height: 180vh;
+    z-index: 2;
+  }
+  
+  .tf-title-timeline {
+    font-family: "PP Editorial";
+    margin-top: 10vh;
+    font-size: 6vw;
+    text-align: center;
+  }
+  
+  .tf-timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8vh;
+    transform: translateX(-80%);
+  }
+  
+  .tf-section-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    left: 24vw;
+    gap: 1vh;
+  }
+  
+  .tf-section-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: right;
+    gap: 1vh;
+  }
+  
+  .tf-number {
+    font-family: "PP Editorial";
+    font-size: 3vw;
+  }
+  
+  .tf-description {
+    width: 15vw;
+    font-size: 2vw;
+  }
+  
+  .tf-three-page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #7a5204;
+    width: 100%;
+    height: 50vh;
+    border-radius: 0 0 100px 100px;
+    z-index: 2;
+  }
+  
+  .tf-three-page span {
+    font-family: "PP Editorial";
+    position: relative;
+    text-transform: uppercase;
+    left: 5vw;
+    top: -1vh;
+    font-size: 3.5vw;
+  }
+  
+  .tf-three-page button {
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: "PP Editorial";
+    top: 8vh;
+    left: -10vw;
+    font-size: 1.1vw;
+    border-radius: 150px;
+    padding: 2vh 3vw;
+    z-index: 10;
+  }
+  
+  .tf-svg {
+    position: absolute;
+    height: 100vh;
+  }
+  
+  svg {
+    display: flex;
+    position: relative;
+    left: 20vw;
+    width: 40%;
+    height: 140%;
+    scale: 4.5;
+  }
+  
+  .tf-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(15, 17, 17, 1);
+    color: white;
+    width: 100%;
+    height: 60vh;
+    z-index: -1;
+  }
+  
+  .title-name-footer {
+    position: relative;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    font-size: 6vw;
+    color: white;
+  }
+  
+  .oculos {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    color: white;
+  }
+  
+  .oculos img {
+    width: 30vw;
+    margin-bottom: 5vh;
+  }
+  
+  .links-footer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+    font-size: 1.1vw;
+    gap: 2vw;
+  }
+  
+  .links-icon {
+    display: flex;
+    gap: 2vw;
+    font-size: 2vw;
+    margin-bottom: 6vh;
+  }
+  
+  .directos {
+    position: relative;
+    display: flex;
+    top: 4vh;
+    gap: 3vw;
+    text-transform: uppercase;
+    font-size: 1.1vw;
+  }
+  
+}
+
+@media (max-width: 425px) {
+  .logo {
+    margin-left: 4vw;
+  }
+  a {
+    margin-right: 2vw;
+  }
+  .tf-one-page img {
+    position: absolute;
+    left: 60vw;
+    top: 30vh;
+    width: 35vw;
+    height: 54vh;
+    background-size: cover;
+    /* ou 'contain' */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+  
+  .tf-title {
+    position: relative;
+    align-content: center;
+    font-family: "PP Editorial";
+    margin-top: 20vh;
+    left: 8vw;
+    font-size: 16vw;
+    object-fit: cover;
+  }
+  
+  .tf-subtitle {
+    position: relative;
+    font-size: 5vw;
+    left: 38vw;
+    z-index: 3;
+  }
+  
+  .tf-description-one {
+    position: relative;
+    opacity: 0.5;
+    left: 3vw;
+    top: 14vh;
+    margin-bottom: 18vh;
+    font-size: 2vw;
+    z-index: 3;
+  }
+  
+  .tf-subtitle-two {
+    font-family: "PP Editorial";
+    position: relative;
+    top: 5vh;
+    left: 7vw;
+    font-size: 9vw;
+    z-index: 3;
+  }
+  
+  .tf-subtitle-two::before {
+    content: "‘’";
+    position: relative;
+    margin-left: -2vw;
+  }
+  
+  .tf-subtitle-two::after {
+    content: "‘’";
+    position: relative;
+    left: 1vw;
+  }
+  
+  .tf-description-two {
+    position: relative;
+    top: 15vh;
+    opacity: 0.5;
+    font-size: 3vw;
+    width: 30vw;
+    left: 60vw;
+  }
+  .tf-two-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+    color: white;
+    background-color: rgba(15, 17, 17, 1);
+    width: 100%;
+    height: 140vh;
+    z-index: 2;
+  }
+  
+  .tf-title-timeline {
+    font-family: "PP Editorial";
+    margin-top: 10vh;
+    font-size: 6vw;
+    text-align: center;
+  }
+  
+  .tf-timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8vh;
+    transform: translateX(-80%);
+  }
+  
+  .tf-section-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    left: 44vw;
+    gap: 1vh;
+  }
+  
+  .tf-section-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: right;
+    gap: 1vh;
+  }
+  
+  .tf-number {
+    font-family: "PP Editorial";
+    font-size: 5vw;
+  }
+  
+  .tf-description {
+    width: 30vw;
+    font-size: 14px;
+  }
+  
+  .tf-three-page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #7a5204;
+    width: 100%;
+    height: 50vh;
+    border-radius: 0 0 100px 100px;
+    z-index: 2;
+  }
+  
+  .tf-three-page span {
+    font-family: "PP Editorial";
+    position: relative;
+    text-transform: uppercase;
+    left: 5vw;
+    top: -1vh;
+    font-size: 6vw;
+  }
+  
+  .tf-three-page button {
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: "PP Editorial";
+    top: 10vh;
+    left: -10vw;
+    font-size: 2vw;
+    border-radius: 150px;
+    padding: 2vh 3vw;
+    z-index: 10;
+  }
+  
+  .tf-svg {
+    position: absolute;
+    height: 100vh;
+  }
+  
+  svg {
+    display: flex;
+    position: relative;
+    left: 40vw;
+    width: 40%;
+    height: 110%;
+    scale: 4.5;
+  }
+  
+  .tf-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(15, 17, 17, 1);
+    color: white;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+  }
+  
+  .title-name-footer {
+    position: relative;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    font-size: 10vw;
+    color: white;
+  }
+  
+  .oculos {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    color: white;
+  }
+  
+  .oculos img {
+    width: 50vw;
+    margin-bottom: 5vh;
+  }
+  
+  .links-footer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+    font-size: 4vw;
+    gap: 2vw;
+  }
+  
+  .links-icon {
+    display: flex;
+    gap: 3vw;
+    font-size: 5vw;
+    margin-bottom: 2vh;
+  }
+  
+  .directos {
+    position: relative;
+    display: flex;
+    top: 4vh;
+    gap: 3vw;
+    text-transform: uppercase;
+    font-size: 2vw;
+  }
+  
 }
