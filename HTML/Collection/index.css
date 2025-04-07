@@ -2690,6 +2690,12 @@ html {
   /* Show the number badge when the 'show' class is present */
 }
 
+.cart-svg {
+  position: fixed;
+  top: 0vh;
+  width: 15px;
+}
+
 .cart-container {
   position: fixed;
   top: 0;
@@ -2718,4 +2724,20 @@ html {
 #cart-items tbody {
   /* ... (other tbody styles) ... */
   height: calc(100% - 150px);
+}
+
+@media (max-width: 425px) {
+  .flex-row-ef {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-row-f {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-row-cc {
+    display: flex;
+    flex-direction: column;
+  }
 }
