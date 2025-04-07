@@ -26,10 +26,10 @@ nav {
 
 a {
   padding-right: 1.5vw;
-  font-size: 18px ;
-  text-decoration: none ;
-  color: #fff ;
-  cursor: pointer ;
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }
 
 
@@ -45,7 +45,7 @@ a {
   overflow-x: hidden;
 }
 
-img {
+.tf-one-page img {
   position: absolute;
   left: 60vw;
   top: 30vh;
@@ -111,6 +111,7 @@ img {
 }
 
 .tf-two-page {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,6 +120,7 @@ img {
   background-color: rgba(15, 17, 17, 1);
   width: 100%;
   height: 150vh;
+  z-index: 2;
 }
 
 .tf-title-timeline {
@@ -164,6 +166,7 @@ img {
 }
 
 .tf-three-page {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -173,6 +176,7 @@ img {
   width: 100%;
   height: 50vh;
   border-radius: 0 0 100px 100px;
+  z-index: 2;
 }
 
 .tf-three-page span {
@@ -195,6 +199,7 @@ img {
   font-size: 1.1vw;
   border-radius: 150px;
   padding: 2vh 3vw;
+  z-index: 10;
 }
 
 .tf-svg {
@@ -209,4 +214,60 @@ svg {
   width: 40%;
   height: 100%;
   scale: 4.5;
+}
+
+.tf-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(15, 17, 17, 1);
+  color: white;
+  width: 100%;
+  height: 80vh;
+  z-index: -1;
+}
+
+.title-name-footer {
+  position: relative;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  font-size: 6vw;
+  color: white;
+}
+
+.oculos {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  color: white;
+}
+
+.oculos img {
+  width: 30vw;
+  margin-bottom: 5vh;
+}
+
+.links-footer {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5vh;
+  font-size: 1.1vw;
+  gap: 2vw;
+}
+
+.links-icon {
+  display: flex;
+  gap: 2vw;
+  font-size: 2vw;
+  margin-bottom: 6vh;
+}
+
+.directos {
+  position: relative;
+  display: flex;
+  top: 4vh;
+  gap: 3vw;
+  text-transform: uppercase;
+  font-size: 1.1vw;
 }

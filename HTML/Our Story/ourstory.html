@@ -9,7 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
     <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Our Story</title>
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            background-color: #0f1111;
+        }
+    </style>
 </head>
 
 <body>
@@ -96,6 +104,32 @@
         <span>‘’Tom Ford is the embodiment of modern <br> luxury, where boldness <br> meets sophistication.‘’</span>
         <button>Explore Collection Ford</button>
     </div>
+    <div class="tf-footer">
+        <div class="title-name-footer">TOM FORD</div>
+        <div class="oculos">
+            <img src="./assets/images/Oculos.png" alt="">
+            <img src="/HTML/Our Story/assets/images/Oculos.png" alt="">
+            <img src="/HTML/Our Story/assets/images/Oculos.png" alt="">
+            <img src="/HTML/Our Story/assets/images/Oculos.png" alt="">
+            <img src="/HTML/Our Story/assets/images/Oculos.png" alt="">
+        </div>
+        <div class="links-footer">
+            <span>OUR STORY</span>
+            <span>COLLECTION</span>
+            <span>BUSINESS</span>
+            <span>CONTACT</span>
+        </div>
+        <div class="links-icon">
+            <i class="ri-instagram-line"></i>
+            <i class="ri-github-fill"></i>
+            <i class="ri-linkedin-box-line"></i>
+        </div>
+        <div class="directos">
+            <span>PRIVACY POLICY</span>
+            <span>Terms & conditions</span>
+            <span>Return & Refund Policy</span>
+        </div>
+    </div>
     <script>
         const lenis = new Lenis({
             duration: 2,
@@ -122,6 +156,7 @@
         document.addEventListener("DOMContentLoaded", () => {
 
             const AnimationBox = document.querySelectorAll("#animation");
+            const Footer = document.querySelector(".tf-footer");
             function Animation() {
                 gsap.fromTo(AnimationBox, {
                     y: '30%',
@@ -137,6 +172,18 @@
                         trigger: ".tf-one-page",
                     }
                 });
+                gsap.fromTo(Footer, {
+                    y: "-100%",
+                    zIndex: '-1',
+                }, {
+                    y: '-7%',
+                    scrollTrigger: {
+                        trigger: ".tf-three-page",
+                        start: "bottom bottom",
+                        markers: true,
+                        scrub: true,
+                    }
+                })
             }
 
             // Animação para preencher a linha do SVG
