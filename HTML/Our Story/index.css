@@ -43,7 +43,7 @@ a {
   height: 100vh;
   background: rgb(15, 17, 17);
   background: linear-gradient(180deg, rgba(15, 17, 17, 1) 50%, rgba(116, 86, 17, 1) 50%);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .tf-one-page img {
