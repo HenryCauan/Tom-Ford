@@ -553,3 +553,23 @@ ScrollTrigger.create({
         });
     },
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const Footer = document.querySelector(".tf-footer");
+    function Animation2() {
+        gsap.fromTo(Footer, {
+            y: "-100%",
+            zIndex: '-1',
+        }, {
+            y: '-7%',
+            scrollTrigger: {
+                trigger: ".section5",
+                start: "bottom bottom",
+                end: "bottom center",
+                scrub: true,
+            }
+        })
+    }
+    Animation2();
+});
