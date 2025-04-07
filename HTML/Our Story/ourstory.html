@@ -146,14 +146,14 @@
             requestAnimationFrame(raf);
         }
 
-        // Verifica a largura da tela antes de inicializar o Lenis
-        if (window.innerWidth > 768 && window.innerWidth > 425) {
-            requestAnimationFrame(raf);
+        // ... existing code ...
+        // Inicializa o Lenis independentemente da largura da tela
+        requestAnimationFrame(raf);
 
-            lenis.on('scroll', () => {
-                ScrollTrigger.update();
-            });
-        }
+        lenis.on('scroll', () => {
+            ScrollTrigger.update();
+        });
+        // ... existing code ...
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
