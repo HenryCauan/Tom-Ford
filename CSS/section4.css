@@ -75,10 +75,14 @@
 }
 
 .section4 .slide-img img {
+  display: flex;
+  justify-content: center;
+  align-self: center;
   object-fit: contain;
+  position: relative;
   width: 100%;
   height: 100%;
-  transform: scale(1);
+  transform: scale(1.5);
   opacity: 1;
   will-change: transform;
   border-radius: 20px; /* Adicionado border-radius aqui */
@@ -91,15 +95,7 @@
   will-change: transform;
 }
 
-.section4 .slide-img img {
-  
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  transform: scale(1.5);
-  opacity: 1;
-  will-change: transform;
-}
+
 
 .section4 .slider-title {
   position: absolute;
