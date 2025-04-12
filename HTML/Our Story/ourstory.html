@@ -17,6 +17,21 @@
             overflow: auto;
             background-color: #0f1111;
         }
+
+        /* Esconde a barra de rolagem no WebKit (Chrome, Safari, etc.) */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Esconde a barra de rolagem no Firefox */
+        body {
+            scrollbar-width: none;
+        }
+
+        /* Esconde a barra de rolagem no IE e Edge */
+        body {
+            -ms-overflow-style: none;
+        }
     </style>
 </head>
 
@@ -209,7 +224,7 @@
             });
 
             Animation();
-        });
+        }, []);
     </script>
 </body>
 
