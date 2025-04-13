@@ -55,7 +55,7 @@
   display: flex;
   align-self: center;
   justify-content: center;
-  left: 50%;
+  left: 50vw;
   transform: translate(-50%, -0%);
   width: 100vw;
   height: 100vh;
@@ -70,8 +70,6 @@
   width: 30%;
   height: 70%;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #000;
   cursor: pointer;
   will-change: transform, opacity, clip-path;
