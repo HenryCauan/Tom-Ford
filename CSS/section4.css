@@ -53,7 +53,10 @@
 .section4 .slider {
   position: relative;
   display: flex;
+  align-self: center;
   justify-content: center;
+  left: 50%;
+  transform: translate(-50%, -0%);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
