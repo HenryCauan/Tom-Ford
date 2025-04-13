@@ -562,7 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
             y: "-80%",
             zIndex: '-1',
         }, {
-            y: '-32%',
+            y: '0%',
             scrollTrigger: {
                 trigger: ".section5",
                 start: "bottom bottom",

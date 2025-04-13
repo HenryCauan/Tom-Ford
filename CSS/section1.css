@@ -13,12 +13,6 @@
 
 }
 
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-  font-family: "Neue Montreal";
-}
 
 body {
   background: url("../Assets/Imagens/Videos/1109.mp4") no-repeat center center/cover; /* ou webm */
