@@ -34,6 +34,32 @@
         .Columnheader.Total {
             text-align: right;
         }
+
+        .Container.header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .ButtonClose {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .Svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -44,7 +70,7 @@
                 <div class="Heading2">
                     <div class="YourCart">Your cart</div>
                 </div>
-                <button class="ButtonClose">
+                <button class="ButtonClose" onclick="hideCart()">
                     <div class="Svg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             style="fill: rgb(255,255,255); --darkreader-inline-fill: #e8e6e3;"
@@ -190,6 +216,12 @@
                 console.error('Failed to fetch cart content:', error);
                 return '<p>Failed to load cart content.</p>'; // Fallback content if fetching fails
             }
+        }
+    </script>
+    <script>
+        function hideCart() {
+            const cart = document.querySelector('.cart');
+            cart.style.display = 'none';
         }
     </script>
 </body>

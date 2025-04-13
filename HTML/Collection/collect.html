@@ -26,6 +26,7 @@
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
             overflow-y: auto;
+            overflow-x: hidden;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -62,6 +63,20 @@
             /* Enable scrolling */
             max-height: calc(100vh - 190px);
             /* Or a fixed height as needed */
+        }
+
+        .close-cart-button {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+            z-index: 1003;
         }
     </style>
 </head>
@@ -408,7 +423,9 @@
             <span>Return & Refund Policy</span>
         </div>
     </div>
-    <div class="cart-container" id="cart-container"></div>
+    <div class="cart-container" id="cart-container">
+        <button class="close-cart-button" onclick="closeCart()">X</button>
+    </div>
     <div class="overlay"></div>
     <script>
         gsap.registerPlugin(ScrollTrigger);
@@ -666,12 +683,9 @@
                 cartOpen = true;
                 mainElement.style.overflow = 'hidden';  // Apply overflow: hidden to main
                 document.body.style.overflow = 'hidden';  // Apply overflow: hidden to body
-                document.body.style.height = '100%'; // Add height: 100%
-                document.documentElement.style.overflow = 'hidden';
-                document.documentElement.style.height = '100%';
+                document.documentElement.style.overflow = 'hidden'; // Apply overflow: hidden to html
 
                 overlay.classList.add('active');
-
 
                 const cartContent = await fetchCartContent();
                 cartContainer.innerHTML = cartContent;
@@ -787,16 +801,18 @@
                 console.log('cartTotal saved:', `$${total.toFixed(2)}`);
             }
 
+            // ... existing code ...
             function closeCart() {
+                console.log("Fechando o carrinho...");
+                const cartContainer = document.getElementById('cart-container');
+                const overlay = document.querySelector('.overlay');
                 cartContainer.classList.remove('open');
-                cartOpen = false;
-                mainElement.style.overflow = ''; // Remove overflow: hidden from main
-                document.body.style.overflow = ''; // Remove overflow: hidden from body
-                document.body.style.height = ''; // Remove height: 100%
-                document.documentElement.style.overflow = '';
-                document.documentElement.style.height = '';
                 overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+                cartOpen = false; // Adicione esta linha para redefinir o estado do carrinho
             }
+            // ... existing code ...
 
             cartIcon.addEventListener('click', async function () {
                 console.log("Cart icon clicked")
@@ -931,13 +947,13 @@
 
         // Modifique a função closeCart para dispositivos móveis
         function closeCart() {
+            console.log("Fechando o carrinho...");
+            const cartContainer = document.getElementById('cart-container');
+            const overlay = document.querySelector('.overlay');
             cartContainer.classList.remove('open');
-            cartOpen = false;
-
-            if (window.innerWidth <= 480) {
-                document.body.style.overflow = '';
-                overlay.style.display = 'none';
-            }
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
     </script>
 </body>
