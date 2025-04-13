@@ -518,7 +518,28 @@ svg {
   }
   
 }
-
+@media (max-width: 1024px) {
+  .tf-title-timeline {
+    font-family: "PP Editorial";
+    margin-top: 10vh;
+    font-size: 5vw;
+    text-align: center;
+  }
+  
+  .tf-timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8vh;
+    transform: translateX(-80%);
+  }
+  .tf-number {
+    font-size: 3vw;
+  }
+  .tf-description {
+    font-size: 1.4vw;
+  }
+}
 @media (max-width: 425px) {
   .logo {
     margin-left: 4vw;
@@ -733,7 +754,7 @@ svg {
     margin-bottom: 5vh;
   }
   
-  .links-footer {
+  .links-footer a {
     display: flex;
     flex-direction: row;
     margin-bottom: 5vh;
