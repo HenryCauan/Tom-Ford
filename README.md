@@ -51,16 +51,15 @@ Tom-Ford/
 
 ## 📸 Captura de Tla
 
-![Captura de tela do site Tom Ford](assets/images/screenshotpng)
+![img](https://github.com/user-attachments/assets/c2c17304-fe0a-4d63-b322-e9c1ba15d14c)
 
-## 📄 Licnça
+
+## 📄 Licença
 
 Este projeto é de uso educacional e não possui fins comeriais.
 
-## 👤 utor
+## 👤 Autor
 
 Desenvolvido por [Henry Cauan](https://github.com/Henryauan).
 
---- 
 
-![img](https://github.com/user-attachments/assets/c2c17304-fe0a-4d63-b322-e9c1ba15d14c)
