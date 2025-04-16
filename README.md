@@ -11,9 +11,10 @@ Este projeto é um remake do site da marca Tom Ford, desenvolvido com foco em de
 
 ## ✨ Funcionalidades
 
--Layout responsivo adaptado para desktop e mobil
 -Catálogo de produtos com imagens de alta qualidad
+<br>
 -Tipografia e cores inspiradas na identidade visual da marc
+<br>
 -Navegação fluida com transições suave
 
 ## 🛠️ Tecnologias Utilizadas
